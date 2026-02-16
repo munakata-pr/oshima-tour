@@ -1,0 +1,517 @@
+/* ============================================
+   五色の旅 記事LP — Premium Style Sheet v3
+   Design: シンプル＆読みやすさ重視
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+/* --- Design Tokens --- */
+:root {
+  --color-accent-pink: #e85b6f;
+  --color-accent-pink-dark: #c9364d;
+  --color-accent-orange: #f0a849;
+  --color-accent-orange-light: #ffcf85;
+  --color-header-blue: #0b3d6b;
+  --color-header-blue-light: #1a5a96;
+  --color-text: #2a2a2a;
+  --color-text-light: #555;
+  --color-text-muted: #888;
+  --color-border: #e2e2e2;
+  --color-border-light: #f0f0f0;
+  --color-bg: #f5f4f0;
+  --color-bg-warm: #faf8f5;
+  --color-white: #fff;
+
+  /* Plan header colors */
+  --color-yellow: #d4982a;
+  --color-red: #b83535;
+  --color-green: #2d8a4e;
+  --color-purple: #6b3f8a;
+  --color-plan-white: #6a6a6a;
+
+  --container-width: 760px;
+  --font-serif: 'Noto Serif JP', '游明朝', 'YuMincho', 'ヒラギノ明朝 ProN', serif;
+  --font-sans: 'Noto Sans JP', -apple-system, "system-ui", "YuGothic", sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 17px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-header-blue-light);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-accent-pink);
+}
+
+/* --- Layout Container --- */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  background: var(--color-white);
+  box-shadow: 0 0 60px rgba(11, 61, 107, 0.06);
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: relative;
+  width: 100%;
+  height: 440px;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      rgba(11, 61, 107, 0.15) 0%,
+      rgba(11, 61, 107, 0.02) 30%,
+      rgba(11, 61, 107, 0.02) 50%,
+      rgba(11, 61, 107, 0.55) 100%);
+}
+
+.hero-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 44px 40px 36px;
+  z-index: 2;
+}
+
+.hero-kicker {
+  display: inline-block;
+  background: var(--color-accent-pink);
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  padding: 6px 16px;
+  border-radius: 3px;
+  margin-bottom: 16px;
+}
+
+.hero-title-overlay h1 {
+  color: var(--color-white);
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.65;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.5px;
+}
+
+.hero-caption {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  text-align: right;
+  padding: 10px 28px;
+  background: var(--color-bg-warm);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+/* ============================================
+   Article Body
+   ============================================ */
+.article-body {
+  padding: 40px 40px 60px;
+}
+
+/* --- Lead Text --- */
+.lead-text {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 2.2;
+  color: var(--color-text);
+  margin-bottom: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.lead-text::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--color-accent-orange);
+}
+
+/* ============================================
+   Section Headings (H2)
+   ============================================ */
+.article-body h2 {
+  font-family: var(--font-serif);
+  color: var(--color-text);
+  font-size: 25px;
+  font-weight: 700;
+  padding-bottom: 14px;
+  margin: 60px 0 28px;
+  position: relative;
+  line-height: 1.55;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.article-body h2::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent-orange), var(--color-accent-orange-light));
+  border-radius: 2px;
+}
+
+.article-body h2 .subtitle {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   Sub Headings (H3)
+   ============================================ */
+.article-body h3 {
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  margin: 40px 0 18px;
+  line-height: 1.6;
+}
+
+/* ============================================
+   Paragraph
+   ============================================ */
+.article-body p {
+  margin-bottom: 24px;
+  font-size: 16px;
+  line-height: 2.1;
+}
+
+/* --- Emphasis / Strong --- */
+.article-body strong {
+  color: var(--color-accent-pink-dark);
+  font-weight: 700;
+}
+
+/* ============================================
+   Article Figure
+   ============================================ */
+.article-figure {
+  margin: 36px -40px;
+  position: relative;
+}
+
+.article-figure img {
+  width: 100%;
+}
+
+.article-figure figcaption {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: 10px 40px;
+  line-height: 1.6;
+  background: var(--color-bg-warm);
+}
+
+/* ============================================
+   Plan Cards — Color header + plain text body
+   ============================================ */
+.plan-section-intro {
+  text-align: center;
+  margin: 10px 0 40px;
+}
+
+.plan-section-intro p {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--color-text-light);
+}
+
+.plan-cards {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.plan-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.plan-card-header {
+  padding: 22px 28px;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.plan-card-header .plan-color-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.plan-card-header .plan-header-text {
+  flex: 1;
+}
+
+.plan-card-header .plan-color-label {
+  font-size: 13px;
+  opacity: 0.85;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.plan-card-header .plan-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+/* Card body — plain text, no color decorations */
+.plan-card-body {
+  padding: 28px 28px 24px;
+}
+
+/* Plan card images */
+.plan-figure {
+  margin: 0 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.plan-figure img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  display: block;
+}
+
+.plan-card-body .plan-description {
+  font-size: 16px;
+  line-height: 2.1;
+  margin-bottom: 20px;
+  color: var(--color-text);
+}
+
+.plan-card-body .plan-info {
+  font-size: 15px;
+  line-height: 2;
+  color: var(--color-text-light);
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.plan-card-body .plan-info strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* Card header color variants */
+.plan-card--yellow .plan-card-header {
+  background: linear-gradient(135deg, #d4982a, #e8b44c);
+}
+
+.plan-card--red .plan-card-header {
+  background: linear-gradient(135deg, #a82e2e, #c94545);
+}
+
+.plan-card--green .plan-card-header {
+  background: linear-gradient(135deg, #257a42, #3aad5e);
+}
+
+.plan-card--purple .plan-card-header {
+  background: linear-gradient(135deg, #5c3578, #8251a8);
+}
+
+.plan-card--white .plan-card-header {
+  background: linear-gradient(135deg, #5a5a5a, #7a7a7a);
+}
+
+/* ============================================
+   Message Author
+   ============================================ */
+.message-author {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-top: 8px;
+}
+
+/* ============================================
+   Reservation — Simple Style
+   ============================================ */
+.reservation-steps-simple {
+  margin: 16px 0 32px 24px;
+  font-size: 16px;
+  line-height: 2.2;
+}
+
+.reservation-steps-simple li {
+  margin-bottom: 8px;
+  padding-left: 8px;
+}
+
+/* ============================================
+   CTA Button
+   ============================================ */
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--color-accent-orange), #e8b44c);
+  color: var(--color-header-blue);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 48px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all var(--transition);
+  box-shadow: 0 4px 16px rgba(240, 168, 73, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(240, 168, 73, 0.45);
+  text-decoration: none;
+  color: var(--color-header-blue);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.site-footer {
+  background: var(--color-header-blue);
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.site-footer a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 800px) {
+  html {
+    font-size: 16px;
+  }
+
+  .container {
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .hero-image {
+    height: 300px;
+  }
+
+  .hero-title-overlay {
+    padding: 28px 20px 24px;
+  }
+
+  .hero-title-overlay h1 {
+    font-size: 24px;
+  }
+
+  .article-body {
+    padding: 28px 20px 44px;
+  }
+
+  .article-body h2 {
+    font-size: 22px;
+    margin-top: 48px;
+  }
+
+  .article-figure {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  .plan-card-header .plan-title {
+    font-size: 18px;
+  }
+
+  .plan-card-body {
+    padding: 24px 20px;
+  }
+}
