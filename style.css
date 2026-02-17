@@ -497,6 +497,18 @@ a:hover {
     height: 300px;
   }
 
+  .hero-overlay-design {
+    width: 80px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .hero-caption {
+    text-align: center;
+    font-size: 10px;
+    padding: 8px 16px;
+  }
+
   .hero-title-overlay {
     padding: 28px 20px 24px;
   }
